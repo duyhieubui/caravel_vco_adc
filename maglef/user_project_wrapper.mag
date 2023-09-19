@@ -3322,6 +3322,8 @@ rlabel metal2 s 582166 -960 582278 480 8 user_irq[1]
 port 530 nsew signal output
 rlabel metal2 s 583362 -960 583474 480 8 user_irq[2]
 port 531 nsew signal output
+rlabel metal4 s -2006 -934 -1386 704870 4 vccd1
+port 532 nsew power bidirectional
 rlabel metal5 s -2006 -934 585930 -314 8 vccd1
 port 532 nsew power input
 rlabel metal5 s -2966 2866 586890 3486 6 vccd1
@@ -4615,8 +4617,8 @@ port 644 nsew signal input
 rlabel metal2 s 6430 -960 6542 480 8 wbs_we_i
 port 645 nsew signal input
 << properties >>
-string LEFclass BLOCK
 string FIXED_BBOX 0 0 584000 704000
+string LEFclass BLOCK
 string LEFview TRUE
 string GDS_FILE /project/openlane/user_project_wrapper/runs/user_project_wrapper/results/magic/user_project_wrapper.gds
 string GDS_END 35182412

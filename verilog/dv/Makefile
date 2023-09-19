@@ -19,9 +19,11 @@
 .SUFFIXES:
 .SILENT: clean all
 
+
 PATTERNS = vco_adc_wrapper vco_adc uart
 
 all:  ${PATTERNS}
+
 	for i in ${PATTERNS}; do \
 		( cd $$i && make -f Makefile $${i}.vcd &> verify.log && grep Monitor verify.log) ; \
 	done
@@ -32,7 +34,7 @@ $(DV_PATTERNS): verify-% :
 
 clean:  ${PATTERNS}
 	for i in ${PATTERNS}; do \
-		( cd $$i && make clean ) ; \
+		( cd $$i && \rm  -f *.elf *.hex *.bin *.vvp *.log *.vcd *.lst *.hexe ) ; \
 	done
 	rm -rf *.log
 

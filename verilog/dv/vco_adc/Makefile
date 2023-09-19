@@ -14,31 +14,20 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 
-## PDK 
-PDK_PATH = $(PDK_ROOT)/sky130A
 
-## Caravel Pointers
-CARAVEL_ROOT ?= ../../../caravel
-CARAVEL_PATH ?= $(CARAVEL_ROOT)
-CARAVEL_FIRMWARE_PATH = $(CARAVEL_PATH)/verilog/dv/caravel
-CARAVEL_VERILOG_PATH  = $(CARAVEL_PATH)/verilog
-CARAVEL_RTL_PATH = $(CARAVEL_VERILOG_PATH)/rtl
-CARAVEL_BEHAVIOURAL_MODELS = $(CARAVEL_VERILOG_PATH)/dv/caravel
+ 
+PWDD := $(shell pwd)
+BLOCKS := $(shell basename $(PWDD))
 
-## User Project Pointers
-UPRJ_VERILOG_PATH ?= ../../../verilog
-UPRJ_RTL_PATH = $(UPRJ_VERILOG_PATH)/rtl
-UPRJ_BEHAVIOURAL_MODELS = ../
+# ---- Include Partitioned Makefiles ----
 
-## RISCV GCC 
-GCC_PATH?=/ef/apps/bin
-GCC_PREFIX?=riscv32-unknown-elf
+CONFIG = caravel_user_project
 
-## Simulation mode: RTL/GL
-SIM_DEFINES = -DFUNCTIONAL -DSIM
-SIM?=RTL
 
-.SUFFIXES:
+include $(MCW_ROOT)/verilog/dv/make/env.makefile
+include $(MCW_ROOT)/verilog/dv/make/var.makefile
+include $(MCW_ROOT)/verilog/dv/make/cpu.makefile
+include $(MCW_ROOT)/verilog/dv/make/sim.makefile
 
 PATTERN = vco_adc
 

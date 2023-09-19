@@ -4256,8 +4256,12 @@ MACRO user_project_wrapper
     END
   END user_irq[2]
   PIN vccd1
-    DIRECTION INPUT ;
+    DIRECTION INOUT ;
     USE POWER ;
+    PORT
+      LAYER met4 ;
+        RECT -10.030 -4.670 -6.930 3524.350 ;
+    END
     PORT
       LAYER met5 ;
         RECT -10.030 -4.670 2929.650 -1.570 ;
@@ -4536,8 +4540,12 @@ MACRO user_project_wrapper
     END
   END vccd1
   PIN vccd2
-    DIRECTION INPUT ;
+    DIRECTION INOUT ;
     USE POWER ;
+    PORT
+      LAYER met4 ;
+        RECT -19.630 -14.270 -16.530 3533.950 ;
+    END
     PORT
       LAYER met5 ;
         RECT -19.630 -14.270 2939.250 -11.170 ;
@@ -4816,8 +4824,12 @@ MACRO user_project_wrapper
     END
   END vccd2
   PIN vdda1
-    DIRECTION INPUT ;
+    DIRECTION INOUT ;
     USE POWER ;
+    PORT
+      LAYER met4 ;
+        RECT -29.230 -23.870 -26.130 3543.550 ;
+    END
     PORT
       LAYER met5 ;
         RECT -29.230 -23.870 2948.850 -20.770 ;
@@ -5088,8 +5100,12 @@ MACRO user_project_wrapper
     END
   END vdda1
   PIN vdda2
-    DIRECTION INPUT ;
+    DIRECTION INOUT ;
     USE POWER ;
+    PORT
+      LAYER met4 ;
+        RECT -38.830 -33.470 -35.730 3553.150 ;
+    END
     PORT
       LAYER met5 ;
         RECT -38.830 -33.470 2958.450 -30.370 ;
@@ -5364,8 +5380,12 @@ MACRO user_project_wrapper
     END
   END vdda2
   PIN vssa1
-    DIRECTION INPUT ;
+    DIRECTION INOUT ;
     USE GROUND ;
+    PORT
+      LAYER met4 ;
+        RECT -34.030 -28.670 -30.930 3548.350 ;
+    END
     PORT
       LAYER met5 ;
         RECT -34.030 -28.670 2953.650 -25.570 ;
@@ -5632,8 +5652,12 @@ MACRO user_project_wrapper
     END
   END vssa1
   PIN vssa2
-    DIRECTION INPUT ;
+    DIRECTION INOUT ;
     USE GROUND ;
+    PORT
+      LAYER met4 ;
+        RECT -43.630 -38.270 -40.530 3557.950 ;
+    END
     PORT
       LAYER met5 ;
         RECT -43.630 -38.270 2963.250 -35.170 ;
@@ -5896,8 +5920,12 @@ MACRO user_project_wrapper
     END
   END vssa2
   PIN vssd1
-    DIRECTION INPUT ;
+    DIRECTION INOUT ;
     USE GROUND ;
+    PORT
+      LAYER met4 ;
+        RECT -14.830 -9.470 -11.730 3529.150 ;
+    END
     PORT
       LAYER met5 ;
         RECT -14.830 -9.470 2934.450 -6.370 ;
@@ -6172,8 +6200,12 @@ MACRO user_project_wrapper
     END
   END vssd1
   PIN vssd2
-    DIRECTION INPUT ;
+    DIRECTION INOUT ;
     USE GROUND ;
+    PORT
+      LAYER met4 ;
+        RECT -24.430 -19.070 -21.330 3538.750 ;
+    END
     PORT
       LAYER met5 ;
         RECT -24.430 -19.070 2944.050 -15.970 ;
