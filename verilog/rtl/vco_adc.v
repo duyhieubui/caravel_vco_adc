@@ -7,14 +7,14 @@
 // Last Modified On: Sat May 15 00:37:39 2021
 // Update Count    : 0
 // Status          : done
-`include "phase_readout.v"
-`include "phase_sum.v"
-`include "sinc_sync.v"
+//`include "../../rtl/phase_readout.v"
+//`include "../../rtl/phase_sum.v"
+//`include "../../rtl/sinc_sync.v"
 
 module vco_adc
   (
 `ifdef USE_POWER_PINS
-    inout vdda1,	// User area 1 3.3V supply
+    inout vccd1,	// User area 1 3.3V supply
     inout vssd1,	// User area 1 digital ground
 `endif
    input 	 clk,
@@ -53,23 +53,23 @@ module vco_adc
 
    always @(posedge clk) begin
       if (rst == 1'b1) begin
-	 startup_cnt_reg = 3'h0;
-	 output_en_reg = 1'b0;
+	 startup_cnt_reg <= 3'h0;
+	 output_en_reg <= 1'b0;
       end
       else begin
 	 if (enable_reg == 1'b1
 	     && startup_cnt_reg != 3'h4) begin
 	    if (data_valid == 1'b1)
-	      startup_cnt_reg = startup_cnt_reg + 3'h1;
-	    output_en_reg = 1'b0;
+	      startup_cnt_reg <= startup_cnt_reg + 3'h1;
+	    output_en_reg <= 1'b0;
 	 end
 	 else if (enable_reg == 1'b1
 		  && startup_cnt_reg == 3'h4) begin
-	    output_en_reg = 1'b1;
+	    output_en_reg <= 1'b1;
 	 end
 	 else begin
-	    startup_cnt_reg = 2'h0;
-	    output_en_reg = 1'b0;
+	    startup_cnt_reg <= 2'h0;
+	    output_en_reg <= 1'b0;
 	 end
       end
    end

@@ -16,8 +16,10 @@
  */
 
 // This include is relative to $CARAVEL_PATH (see Makefile)
-#include "verilog/dv/caravel/defs.h"
-#include "verilog/dv/caravel/stub.c"
+#include <defs.h>
+#include <stub.c>
+
+#define reg_mprj_slave (*(volatile uint32_t*)0x30000000)
 
 // --------------------------------------------------------
 #define reg_mprj_vco_adc (*(volatile uint32_t*)0x30000004)
@@ -72,33 +74,35 @@ void main()
     // designed to read the project count through the
     // logic analyzer probes.
     // I/O 6 is configured for the UART Tx line
+    reg_spi_enable = 1;
+    reg_wb_enable = 1;
+    
+/*     reg_spimaster_config = 0xb002;      // Apply stream mode */
 
-    reg_spimaster_config = 0xb002;      // Apply stream mode
+/* #ifdef USE_PLL */
+/*     reg_spimaster_data = 0x80;          // Write 0x80 (write mode) */
+/*     reg_spimaster_data = 0x08;          // Write 0x18 (start address) */
+/*     reg_spimaster_data = 0x01;          // Write 0x01 to PLL enable, no DCO mode */
+/*     reg_spimaster_config = 0xa102;      // Release CSB (ends stream mode) */
 
-#ifdef USE_PLL
-    reg_spimaster_data = 0x80;          // Write 0x80 (write mode)
-    reg_spimaster_data = 0x08;          // Write 0x18 (start address)
-    reg_spimaster_data = 0x01;          // Write 0x01 to PLL enable, no DCO mode
-    reg_spimaster_config = 0xa102;      // Release CSB (ends stream mode)
+/*     reg_spimaster_config = 0xb002;      // Apply stream mode */
+/*     reg_spimaster_data = 0x80;          // Write 0x80 (write mode) */
+/*     reg_spimaster_data = 0x11;          // Write 0x11 (start address) */
+/*     reg_spimaster_data = 0x06;          // Write 0x03 to PLL output divider */
+/*     reg_spimaster_config = 0xa102;      // Release CSB (ends stream mode) */
 
-    reg_spimaster_config = 0xb002;      // Apply stream mode
-    reg_spimaster_data = 0x80;          // Write 0x80 (write mode)
-    reg_spimaster_data = 0x11;          // Write 0x11 (start address)
-    reg_spimaster_data = 0x06;          // Write 0x03 to PLL output divider
-    reg_spimaster_config = 0xa102;      // Release CSB (ends stream mode)
+/*     reg_spimaster_config = 0xb002;      // Apply stream mode */
+/*     reg_spimaster_data = 0x80;          // Write 0x80 (write mode) */
+/*     reg_spimaster_data = 0x09;          // Write 0x09 (start address) */
+/*     reg_spimaster_data = 0x00;          // Write 0x00 to clock from PLL (no bypass) */
+/*     reg_spimaster_config = 0xa102;      // Release CSB (ends stream mode) */
 
-    reg_spimaster_config = 0xb002;      // Apply stream mode
-    reg_spimaster_data = 0x80;          // Write 0x80 (write mode)
-    reg_spimaster_data = 0x09;          // Write 0x09 (start address)
-    reg_spimaster_data = 0x00;          // Write 0x00 to clock from PLL (no bypass)
-    reg_spimaster_config = 0xa102;      // Release CSB (ends stream mode)
-
-    reg_spimaster_config = 0xb002;      // Apply stream mode
-    reg_spimaster_data = 0x80;          // Write 0x80 (write mode)
-    reg_spimaster_data = 0x12;          // Write 0x12 (start address)
-    reg_spimaster_data = 0x03;          // Write 0x03 to feedback divider (was 0x04)
-    reg_spimaster_config = 0xa102;      // Release CSB (ends stream mode)
-#endif
+/*     reg_spimaster_config = 0xb002;      // Apply stream mode */
+/*     reg_spimaster_data = 0x80;          // Write 0x80 (write mode) */
+/*     reg_spimaster_data = 0x12;          // Write 0x12 (start address) */
+/*     reg_spimaster_data = 0x03;          // Write 0x03 to feedback divider (was 0x04) */
+/*     reg_spimaster_config = 0xa102;      // Release CSB (ends stream mode) */
+/* #endif */
 
     reg_mprj_datal = 0x00000000;
     reg_mprj_datah = 0x00000000;

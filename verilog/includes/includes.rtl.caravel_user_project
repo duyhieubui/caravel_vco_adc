@@ -15,6 +15,14 @@
 
 # Caravel user project includes
 -v $(USER_PROJECT_VERILOG)/rtl/user_project_wrapper.v	     
--v $(USER_PROJECT_VERILOG)/rtl/user_proj_example.v
+-v $(USER_PROJECT_VERILOG)/rtl/vco_adc_wrapper.v
+-v $(USER_PROJECT_VERILOG)/rtl/vco.v
+-v $(USER_PROJECT_VERILOG)/rtl/vco_r100.v
+-v $(USER_PROJECT_VERILOG)/rtl/vco_w6_r100.v
+-v $(USER_PROJECT_VERILOG)/rtl/vco_adc.v
+-v $(USER_PROJECT_VERILOG)/rtl/phase_sum.v
+-v $(USER_PROJECT_VERILOG)/rtl/phase_readout.v
+-v $(USER_PROJECT_VERILOG)/rtl/sinc_sync.v
+-v $(USER_PROJECT_VERILOG)/rtl/phase_diff.v
 
  

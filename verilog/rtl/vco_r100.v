@@ -1,3 +1,4 @@
+/// sta-blackbox
 // behavior model of the vco
 module vco_r100
   #(

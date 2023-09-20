@@ -35,8 +35,6 @@
  *-------------------------------------------------------------
  */
 `define SKY130A_SRAM
-`include "vco_adc.v"
-// `include "fifo.v"
 
 `define REG_MPRJ_SLAVE       24'h300000 // VCO Based address
 `define REG_MPRJ_VCO_CONFIG  8'h00
@@ -70,7 +68,7 @@ module vco_adc_wrapper #(
     // input  [127:0] la_oenb,
 
     // IOs
-    //input  [`MPRJ_IO_PADS-1:0] io_in,
+    // input  [`MPRJ_IO_PADS-1:0] io_in,
     output [`MPRJ_IO_PADS-1:0] io_out,
     output [`MPRJ_IO_PADS-1:0] io_oeb,
 

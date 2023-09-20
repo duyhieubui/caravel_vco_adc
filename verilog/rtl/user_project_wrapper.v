@@ -238,8 +238,12 @@ module user_project_wrapper #(
 	    .dout1(m2w_data3)
   );
 
-   vco_adc vco_adc_0
-     (.clk(wb_clk_i)
+   vco_adc vco_adc_0 (
+`ifdef USE_POWER_PINS
+	      .vccd1(vccd1),
+	      .vssd1(vssd1),
+`endif
+      .clk(wb_clk_i)
       ,.rst(wb_rst_i)
       ,.phase_in(phase0)
       ,.oversample_in(oversample)
@@ -261,7 +265,12 @@ module user_project_wrapper #(
    // assign analog_io[9] = a_w[0];
 
    vco_adc vco_adc_1
-     (.clk(wb_clk_i)
+     (
+`ifdef USE_POWER_PINS
+	      .vccd1(vccd1),
+	      .vssd1(vssd1),
+`endif
+      .clk(wb_clk_i)
       ,.rst(wb_rst_i)
       ,.phase_in(phase1)
       ,.oversample_in(oversample)
@@ -269,6 +278,7 @@ module user_project_wrapper #(
       ,.data_out(adc_out_1)
       ,.data_valid_out(sinc3_dvalid[1])
       );
+
    vco vco_1 (// .clk(wb_clk_i),
 	  // .rst(wb_rst_i),
 	  // .enable_in(1'b1),
@@ -282,7 +292,12 @@ module user_project_wrapper #(
    // assign analog_io[12] = a_w[1];
 
    vco_adc vco_adc_2
-     (.clk(wb_clk_i)
+     (
+`ifdef USE_POWER_PINS
+	      .vccd1(vccd1),
+	      .vssd1(vssd1),
+`endif
+      .clk(wb_clk_i)
       ,.rst(wb_rst_i)
       ,.phase_in(phase2)
       ,.oversample_in(oversample)

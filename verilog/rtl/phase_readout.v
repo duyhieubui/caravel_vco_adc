@@ -7,7 +7,7 @@
 // Last Modified On: Sat May 15 00:45:24 2021
 // Update Count    : 0
 // Status          : Unknown, Use with caution!
-`include "phase_diff.v"
+//`include "phase_diff.v"
 module phase_readout
   #(
     parameter PHASE_WIDTH = 11)

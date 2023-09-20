@@ -44,7 +44,7 @@ module sinc_sync
    always @(posedge clk)
      if (rst == 1'b1) begin
 	word_count <= 0;
-	decimation_en = 1'b0;
+	decimation_en <= 1'b0;
    end
      else begin
 	if (enable_in == 1'b1) begin

@@ -2,9 +2,9 @@
 
 `timescale 1 ns / 1 ps
 
-`include "uprj_netlists.v"
-`include "caravel_netlists.v"
-`include "spiflash.v"
+// `include "uprj_netlists.v"
+// `include "caravel_netlists.v"
+// `include "spiflash.v"
 
 module vco_adc_wrapper_tb;
    reg clock;
@@ -40,7 +40,7 @@ module vco_adc_wrapper_tb;
       // $dumpvars(0, vco_adc_wrapper_tb.uut.mprj.vco_0);
       // $dumpvars(0, vco_adc_wrapper_tb.uut.mprj.vco_1);
       // $dumpvars(0, vco_adc_wrapper_tb.uut.mprj.vco_2);
-      $dumpvars(0, vco_adc_wrapper_tb.uut.mprj);
+      $dumpvars(0, vco_adc_wrapper_tb);
       // $dumpvars(0, vco_adc_wrapper_tb.uut);
 
       repeat (200) begin
